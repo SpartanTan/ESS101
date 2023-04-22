@@ -2,9 +2,9 @@ clc;clear;
 close all
 
 %% Initializing the parameters:
-tolerance = ... ;
-alpha     = ... ;
-theta_0   = ... ;
+tolerance = 10e-6 ;
+alpha     = 1 ;
+theta_0   = 2;
 
 % for plotting purpose:
 theta_history = theta_0;
@@ -17,16 +17,16 @@ iteration = true;
 while iteration  
     
     % calculate r , dr
-    [r,dr] = ...  ;
+    [r,dr] = fungen_r(theta)  ;
     
     if abs(r)<tolerance
         break
     else
         % write the direction of dtheta
-        dtheta = ... ;
+        dtheta = -r/dr;
             
         % calculate the new theta     
-        theta  = ... ;
+        theta  = theta + alpha * dtheta;
             
         % for plotting results
         theta_history(:,n_plot) = theta;

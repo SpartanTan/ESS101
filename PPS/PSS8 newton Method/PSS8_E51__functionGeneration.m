@@ -4,10 +4,10 @@ clc;clear;
 syms theta
 
 % Define your function:
-r = ... ;
+r = theta^3-1;
 
 % Calculate the Jacobian:
-dr = ... ;
+dr = jacobian(r,theta);
 
 % Save as a matlab function in a separate file:
-matlabFunction( ... );
+matlabFunction(r,dr, 'File', 'fungen_r');

@@ -22,7 +22,7 @@ for t = 2:N % zero initial condition
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%% Write your code here %%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % y(t) = ...
+    y(t) = atrue * y(t-1) + btrue*u(t-1);
 end
 
 % The output generated is noise-free, to be more realistic let's add some noise:
@@ -31,7 +31,7 @@ noise_std = 0.1;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Write your code here %%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% eG = ... 
+eG = noise_std*randn(N,1);
 
 % Add the noise to the output
 yn = y + eG;

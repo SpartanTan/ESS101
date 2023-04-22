@@ -49,9 +49,9 @@ while iter
         % sensitivity dyhat for 1 time instant. Hence we can build jacobian
         % and Hessian of the cost function for all time instants (summing all together)
         % Jacobian :
-        dJ  = dJ + ...  ;
+        dJ  = dJ + (y.hat(k)-y.data(k))*dyhat;
         % Hessian (here we are going to use an approximation):
-        d2J = d2J + ...  ;
+        d2J = d2J + dyhat.'*dyhat;
     end
     
     % we print the simulator for the current value of the parameters,
@@ -62,7 +62,7 @@ while iter
     drawnow
     
     % Here we have to take our Newton step
-    dtheta        = ...  ;
+    dtheta        = -d2J\dJ.';
     theta.est     = theta.est + alpha*dtheta; 
     
     % Can we stop iterating?
